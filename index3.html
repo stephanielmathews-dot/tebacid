@@ -38,7 +38,7 @@
         <header class="text-center mb-8">
             <h1 class="text-4xl font-bold text-blue-700">Bergey's Manual</h1>
             <h2 class="text-2xl font-semibold text-gray-600">Bacterial Identification Key</h2>
-            <p class="text-sm text-gray-500 mt-2">Dichotomous Key v1.2</p>
+            <p class="text-sm text-gray-500 mt-2">Dichotomous Key v1.1</p>
         </header>
 
         <main class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl">
@@ -56,22 +56,16 @@
                             <div class="test-option">
                                 <input type="radio" id="gram-pos" name="gram-stain" value="Positive" class="hidden" required>
                                 <label for="gram-pos" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <!-- Using previously uploaded image for Gram Positive with Fallback -->
-                                    <img src="image_36101c.png" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/e0e7ff/3730a3?text=Gram+Positive+(Purple)'"
-                                         alt="Gram Positive Stain" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <!-- Using previously uploaded image for Gram Positive -->
+                                    <img src="images/Gram Positive.jpg" alt="Gram Positive Stain" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Positive (Purple)</span>
                                 </label>
                             </div>
                             <div class="test-option">
                                 <input type="radio" id="gram-neg" name="gram-stain" value="Negative" class="hidden">
                                 <label for="gram-neg" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-pink-400 h-full flex flex-col justify-between">
-                                    <!-- Using uploaded image for Gram Negative with Fallback -->
-                                    <img src="image_360bc5.png" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/fce7f3/db2777?text=Gram+Negative+(Pink)'"
-                                         alt="Gram Negative Stain" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <!-- Using newly uploaded image for Gram Negative -->
+                                    <img src="images/Gram Negative.jpg" alt="Gram Negative Stain" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Negative (Pink)</span>
                                 </label>
                             </div>
@@ -85,20 +79,14 @@
                             <div class="test-option">
                                 <input type="radio" id="cat-pos" name="catalase" value="+" class="hidden" required>
                                 <label for="cat-pos" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Catalase Pos.png" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/e0f2fe/0369a1?text=Catalase+Positive+(Bubbles)'"
-                                         alt="Catalase Positive" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Catalase Pos.png" alt="Catalase Positive" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Positive (Bubbles)</span>
                                 </label>
                             </div>
                             <div class="test-option">
                                 <input type="radio" id="cat-neg" name="catalase" value="-" class="hidden">
                                 <label for="cat-neg" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Catalase Neg.png" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/475569?text=Catalase+Negative+(None)'"
-                                         alt="Catalase Negative" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Catalase Neg.png" alt="Catalase Negative" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Negative (No Bubbles)</span>
                                 </label>
                             </div>
@@ -112,20 +100,14 @@
                             <div class="test-option">
                                 <input type="radio" id="ox-pos" name="oxidase" value="+" class="hidden" required>
                                 <label for="ox-pos" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Oxidase Pos.jpg" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/ede9fe/5b21b6?text=Oxidase+Positive+(Purple)'"
-                                         alt="Oxidase Positive" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Oxidase Pos.jpg" alt="Oxidase Positive" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Positive (Purple)</span>
                                 </label>
                             </div>
                             <div class="test-option">
                                 <input type="radio" id="ox-neg" name="oxidase" value="-" class="hidden">
                                 <label for="ox-neg" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Oxidase Neg.jpg" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/f3f4f6/4b5563?text=Oxidase+Negative+(No+Change)'"
-                                         alt="Oxidase Negative" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Oxidase Neg.png" alt="Oxidase Negative" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Negative (No Change)</span>
                                 </label>
                             </div>
@@ -139,20 +121,14 @@
                             <div class="test-option">
                                 <input type="radio" id="gel-pos" name="gelatinase" value="+" class="hidden" required>
                                 <label for="gel-pos" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Gelatin Pos.jpg" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/dbeafe/1e40af?text=Gelatin+Positive+(Liquid)'"
-                                         alt="Gelatinase Positive" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Gelatin Pos.jpg" alt="Gelatinase Positive" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Positive (Liquefied)</span>
                                 </label>
                             </div>
                             <div class="test-option">
                                 <input type="radio" id="gel-neg" name="gelatinase" value="-" class="hidden">
                                 <label for="gel-neg" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Gelatin Neg.jpg" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/f8fafc/64748b?text=Gelatin+Negative+(Solid)'"
-                                         alt="Gelatinase Negative" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Gelatin Neg.jpg" alt="Gelatinase Negative" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Negative (Solid)</span>
                                 </label>
                             </div>
@@ -166,20 +142,14 @@
                             <div class="test-option">
                                 <input type="radio" id="gluc-pos" name="glucose" value="+" class="hidden" required>
                                 <label for="gluc-pos" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Glu Pos.jpg" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/fef08a/854d0e?text=Glucose+Positive+(Yellow)'"
-                                         alt="Glucose Positive" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Glu POS.jpg" alt="Glucose Positive" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Positive (Acid)</span>
                                 </label>
                             </div>
                             <div class="test-option">
                                 <input type="radio" id="gluc-neg" name="glucose" value="-" class="hidden">
                                 <label for="gluc-neg" class="block cursor-pointer p-2 border border-gray-300 rounded-lg text-center hover:border-blue-400 h-full flex flex-col justify-between">
-                                    <img src="Glu Neg.jpg" 
-                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/fecaca/991b1b?text=Glucose+Negative+(Red)'"
-                                         alt="Glucose Negative" 
-                                         class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
+                                    <img src="images/Glu Neg.jpg" alt="Glucose Negative" class="w-full h-32 object-cover rounded mb-2 bg-gray-200">
                                     <span class="block font-medium text-gray-700 pb-1">Negative (No Acid)</span>
                                 </label>
                             </div>
@@ -191,6 +161,14 @@
                     </button>
                 </form>
             </div>
+
+            <!-- PAGE 2: Secondary Tests -->
+            <div id="page2" class="page">
+                <h3 class="text-xl font-semibold mb-4 border-b pb-3 text-gray-700">Step 2: Secondary Tests</h3>
+                <div id="match-count" class="p-4 bg-blue-100 text-blue-800 rounded-lg mb-6 text-center text-lg font-medium"></div>
+                <p class="mb-6 text-gray-600">Now, let's refine the results. Please enter the data for the remaining tests. Select "N/A" if you did not perform the test.</p>
+                <form id="form-page2" class="space-y-8">
+
 
             <!-- PAGE 2: Secondary Tests -->
             <div id="page2" class="page">
