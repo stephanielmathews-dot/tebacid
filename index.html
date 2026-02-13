@@ -39,7 +39,7 @@
         <header class="text-center mb-8">
             <h1 class="text-4xl font-bold text-[#034a5a]">Bergey's Manual</h1>
             <h2 class="text-2xl font-semibold text-[#754c29]">A Tiny Earth tool</h2>
-            <p class="text-sm text-[#754c29] mt-2">using Bergey’s Manual of Determinative Bacteriology</p>
+            <p class="text-sm text-[#754c29] mt-2">This is a teaching tool designed for Tiny Earth Students to help identify their bacterial isolates based on biochemical testing. This tool was created using Bergey’s Manual of Determinative Bacteriology by S.L. Mathews. </p>
         </header>
 
         <main class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-[#dcb49f]">
@@ -416,7 +416,7 @@
                     <div id="result-success" class="hidden">
                         <div class="p-4 bg-[#eeddd2] text-[#034a5a] rounded-lg mb-6 text-center border border-[#dcb49f]">
                             <strong class="block text-xl">Match Found!</strong>
-                            <p class="text-lg">Your organism has been identified.</p>
+                            <p class="text-lg">Your organism has been identified. *Remember that BactID uses a small dataset of soil bacteria to suggest identity* </p>
                         </div>
                         <div class="bg-white border border-[#dcb49f] rounded-lg shadow-md">
                             <h4 id="result-id" class="text-3xl font-bold text-center text-white bg-[#034a5a] p-6 rounded-t-lg"></h4>
@@ -434,7 +434,7 @@
                         <div class="p-6 bg-[#dcb49f] text-[#4d3527] rounded-lg text-center">
                             <strong class="block text-2xl mb-2">No Match Found</strong>
                             <p class="text-lg">No organism in the database matches all of your selected criteria.</p>
-                            <p class="mt-4 text-sm">This could be due to a contaminated plate, a misread "Variable" test, or the organism is not in this database. Please double-check your tests.</p>
+                            <p class="mt-4 text-sm">This could be due to a contaminated plate, a misread "Variable" test, or the organism is not in this database. BactID uses a small dataset of soil bacteria to suggest identity. Please double-check your tests.</p>
                         </div>
                     </div>
 
@@ -443,7 +443,7 @@
                          <div class="p-6 bg-[#aa7a5b] text-white rounded-lg text-center">
                             <strong class="block text-2xl mb-2">Contradiction Detected!</strong>
                             <p class="text-lg">Your secondary tests point to **<span id="contradiction-id" class="font-bold"></span>**.</p>
-                            <p class="mt-4 text-sm">However, this organism's known profile **conflicts** with the primary tests (Gram, Catalase, etc.) you entered on Step 1. This indicates a high probability of a misread test.</p>
+                            <p class="mt-4 text-sm">However, this organism's known profile **conflicts** with the primary tests (Gram, Catalase, etc.) you entered on Step 1. This indicates a high probability of a misread test based on the bacteria in this database.</p>
                         </div>
                     </div>
                 </div>
