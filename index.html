@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bacterial Identification Key</title>
+   
+    <!-- 1. Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Simple transition for page visibility */
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        /* Custom radio button styling */
+        .test-option {
+            transition: all 0.2s ease-in-out;
+        }
+        /* Checked state uses Teal border and Light Beige background */
+        .test-option input[type="radio"]:checked + label {
+            border-color: #007e9a; 
+            background-color: #eeddd2; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+        /* Ensure images inside labels look like cards */
+        .test-option label img {
+            border: 1px solid #dcb49f;
+        }
+    </style>
+</head>
+<body class="bg-[#eeddd2] font-sans leading-relaxed text-[#4d3527]">
+
+    <div class="container mx-auto p-4 sm:p-8 max-w-2xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-[#034a5a]">Bergey's Manual</h1>
+            <h2 class="text-2xl font-semibold text-[#754c29]">A Tiny Earth tool</h2>
+            <p class="text-sm text-[#754c29] mt-2">This is a teaching tool designed for Tiny Earth Students to help identify their bacterial isolates based on biochemical testing. This tool was created using Bergey’s Manual of Determinative Bacteriology by S.L. Mathews. </p>
+        </header>
+
+        <main class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-[#dcb49f]">
+
+            <!-- PAGE 1: Primary Tests -->
+            <div id="page1" class="page active">
+                <h3 class="text-xl font-semibold mb-6 border-b border-[#dcb49f] pb-3 text-[#4d3527]">Step 1: Primary Tests</h3>
+                <p class="mb-6 text-[#754c29]">Enter the results for your unknown organism. These first five tests will narrow down the possibilities.</p>
+                <form id="form-page1" class="space-y-8">
+                    
+                    <!-- Gram Stain -->
+                    <fieldset>
+                        <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Gram Stain</legend>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="test-option">
+                                <input type="radio" id="gram-pos" name="gram-stain" value="Positive" class="hidden" required>
+                                <label for="gram-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+<img src="images/Gram Positive.jpg" 
+                                         alt="Gram Positive Stain" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Positive (Purple)</span>
+                                </label>
+                            </div>
+                            <div class="test-option">
+                                <input type="radio" id="gram-neg" name="gram-stain" value="Negative" class="hidden">
+                                <label for="gram-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#aa7a5b] h-full flex flex-col justify-between">
+                                    <img src="images/Gram Negative.jpg" 
+                                         alt="Gram Negative Stain" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Negative (Pink)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <!-- Catalase -->
+                    <fieldset>
+                        <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Catalase</legend>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="test-option">
+                                <input type="radio" id="cat-pos" name="catalase" value="+" class="hidden" required>
+                                <label for="cat-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+<img src="images/Catalase Pos.png" 
+                                         alt="Catalase Positive" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Positive (Bubbles)</span>
+                                </label>
+                            </div>
+                            <div class="test-option">
+                                <input type="radio" id="cat-neg" name="catalase" value="-" class="hidden">
+                                <label for="cat-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+   <img src="images/Catalase Neg.png" 
+                                         alt="Catalase Negative" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Negative (No Bubbles)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Oxidase -->
+                    <fieldset>
+                        <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Oxidase</legend>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="test-option">
+                                <input type="radio" id="ox-pos" name="oxidase" value="+" class="hidden" required>
+                                <label for="ox-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                    <img src="images/Oxidase Pos.jpg" 
+                                         alt="Oxidase Positive" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Positive (Purple)</span>
+                                </label>
+                            </div>
+                            <div class="test-option">
+                                <input type="radio" id="ox-neg" name="oxidase" value="-" class="hidden">
+                                <label for="ox-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+  <img src="images/Oxidase Neg.png" 
+                                         alt="Oxidase Negative" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Negative (No Change)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Gelatinase -->
+                    <fieldset>
+                        <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Gelatinase</legend>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="test-option">
+                                <input type="radio" id="gel-pos" name="gelatinase" value="+" class="hidden" required>
+                                <label for="gel-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                    <img src="images/Gelatin Pos.jpg" 
+                                         alt="Gelatinase Positive" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Positive (Liquefied)</span>
+                                </label>
+                            </div>
+                            <div class="test-option">
+                                <input type="radio" id="gel-neg" name="gelatinase" value="-" class="hidden">
+                                <label for="gel-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                    <img src="images/Gelatin Neg.jpg" 
+                                         alt="Gelatinase Negative" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Negative (Solid)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Glucose -->
+                    <fieldset>
+                        <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Glucose Utilization</legend>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="test-option">
+                                <input type="radio" id="gluc-pos" name="glucose" value="+" class="hidden" required>
+                                <label for="gluc-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+<img src="images/Glu Pos.jpg" 
+                                         alt="Glucose Positive" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Positive (Acid)</span>
+                                </label>
+                            </div>
+                            <div class="test-option">
+                                <input type="radio" id="gluc-neg" name="glucose" value="-" class="hidden">
+                                <label for="gluc-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                    <img src="images/Glu Neg.jpg" 
+                                         alt="Glucose Negative" 
+                                         class="w-full h-32 object-cover rounded mb-2 bg-[#eeddd2]">
+                                    <span class="block font-medium text-[#4d3527] pb-1">Negative (No Acid)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="w-full bg-[#007e9a] text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-[#034a5a] transition duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Find Matches
+                    </button>
+                </form>
+            </div>
+
+            <!-- PAGE 2: Secondary Tests -->
+            <div id="page2" class="page">
+                <h3 class="text-xl font-semibold mb-4 border-b border-[#dcb49f] pb-3 text-[#4d3527]">Step 2: Secondary Tests</h3>
+                <div id="match-count" class="p-4 bg-[#eeddd2] text-[#034a5a] rounded-lg mb-6 text-center text-lg font-medium border border-[#dcb49f]"></div>
+                <p class="mb-6 text-[#754c29]">Now, let's refine the results. Please enter the data for the remaining tests. Select "N/A" if you did not perform the test.</p>
+                <form id="form-page2" class="space-y-8">
+                    
+                    <!-- Secondary Tests Container -->
+                    <div id="secondary-tests-container" class="space-y-8">
+                        
+                                 <!-- Amylase (NEW) -->
+                        <fieldset>
+                            <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Amylase (Starch Hydrolysis)</legend>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="test-option">
+                                    <input type="radio" id="amylase-pos" name="amylase" value="+" class="hidden">
+                                    <label for="amylase-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                         <img src="images/StarchPos.png"
+                                             alt="Amylase Positive" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Positive (Clear Halo)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="amylase-neg" name="amylase" value="-" class="hidden">
+                                    <label for="amylase-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                             <img src="images/StarchNeg.png"
+                                             alt="Amylase Negative" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Negative (Dark Blue)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="amylase-na" name="amylase" value="N/A" class="hidden" checked>
+                                    <label for="amylase-na" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-center items-center bg-[#eeddd2]">
+                                        <span class="text-gray-400 text-4xl mb-2">?</span>
+                                        <span class="block font-medium text-[#754c29] text-sm">Not Tested (N/A)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                      
+                      <!-- Hydrogen sulfide -->
+                        <fieldset>
+                            <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Hydrogen Sulfide (H₂S)</legend>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="test-option">
+                                    <input type="radio" id="h2s-pos" name="hydrogen-sulfide" value="+" class="hidden">
+                                    <label for="h2s-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="images/HS Pos.png"
+                                             alt="H2S Positive" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Positive (Black)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="h2s-neg" name="hydrogen-sulfide" value="-" class="hidden">
+                                    <label for="h2s-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+  <img src="images/HS Neg.png"
+                                             alt="H2S Negative" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Negative (No Black)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="h2s-na" name="hydrogen-sulfide" value="N/A" class="hidden" checked>
+                                    <label for="h2s-na" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-center items-center bg-[#eeddd2]">
+                                        <span class="text-gray-400 text-4xl mb-2">?</span>
+                                        <span class="block font-medium text-[#754c29] text-sm">Not Tested (N/A)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Indole -->
+                        <fieldset>
+                            <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Indole</legend>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="test-option">
+                                    <input type="radio" id="indole-pos" name="indole" value="+" class="hidden">
+                                    <label for="indole-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+<img src="images/Indole Pos.png"
+                                             alt="Indole Positive" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Positive (Red Ring)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="indole-neg" name="indole" value="-" class="hidden">
+                                    <label for="indole-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="images/Indole Neg.jpg"
+                                             alt="Indole Negative" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Negative (No Ring)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="indole-na" name="indole" value="N/A" class="hidden" checked>
+                                    <label for="indole-na" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-center items-center bg-[#eeddd2]">
+                                        <span class="text-gray-400 text-4xl mb-2">?</span>
+                                        <span class="block font-medium text-[#754c29] text-sm">Not Tested (N/A)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+ <!-- Motility -->
+                        <fieldset>
+                            <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Motility</legend>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="test-option">
+                                    <input type="radio" id="motility-pos" name="motility" value="+" class="hidden">
+                                    <label for="motility-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="Motility Pos.jpg" 
+                                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/fca5a5/7f1d1d?text=Motility+Positive+(Cloudy)'"
+                                             alt="Motility Positive" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Positive (Spreading)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="motility-neg" name="motility" value="-" class="hidden">
+                                    <label for="motility-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="Motility Neg.jpg" 
+                                             onerror="this.onerror=null; this.src='https://placehold.co/400x300/fee2e2/991b1b?text=Motility+Negative+(Line)'"
+                                             alt="Motility Negative" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Negative (Stab Line)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="motility-na" name="motility" value="N/A" class="hidden" checked>
+                                    <label for="motility-na" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-center items-center bg-[#eeddd2]">
+                                        <span class="text-gray-400 text-4xl mb-2">?</span>
+                                        <span class="block font-medium text-[#754c29] text-sm">Not Tested (N/A)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- Lactose -->
+                        <fieldset>
+                            <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Lactose Utilization</legend>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="test-option">
+                                    <input type="radio" id="lactose-pos" name="lactose" value="+" class="hidden">
+                                    <label for="lactose-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="images/Glu Pos.jpg" 
+                                             alt="Lactose Positive" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Positive (Acid)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="lactose-neg" name="lactose" value="-" class="hidden">
+                                    <label for="lactose-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                         <img src="images/Glu Neg.jpg"
+                                             alt="Lactose Negative" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Negative (No Acid)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="lactose-na" name="lactose" value="N/A" class="hidden" checked>
+                                    <label for="lactose-na" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-center items-center bg-[#eeddd2]">
+                                        <span class="text-gray-400 text-4xl mb-2">?</span>
+                                        <span class="block font-medium text-[#754c29] text-sm">Not Tested (N/A)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Mannitol -->
+                        <fieldset>
+                            <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Mannitol Utilization</legend>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="test-option">
+                                    <input type="radio" id="mannitol-pos" name="mannitol" value="+" class="hidden">
+                                    <label for="mannitol-pos" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="images/Glu Pos.jpg" 
+                                             alt="Mannitol Positive" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Positive (Acid)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="mannitol-neg" name="mannitol" value="-" class="hidden">
+                                    <label for="mannitol-neg" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="images/Glu Neg.jpg" 
+                                             alt="Mannitol Negative" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Negative (No Acid)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="mannitol-na" name="mannitol" value="N/A" class="hidden" checked>
+                                    <label for="mannitol-na" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-center items-center bg-[#eeddd2]">
+                                        <span class="text-gray-400 text-4xl mb-2">?</span>
+                                        <span class="block font-medium text-[#754c29] text-sm">Not Tested (N/A)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Hemolysis -->
+                        <fieldset>
+                            <legend class="text-lg font-semibold mb-3 text-[#4d3527]">Hemolysis</legend>
+                            <div class="grid grid-cols-4 gap-4">
+                                <div class="test-option">
+                                    <input type="radio" id="hemolysis-beta" name="hemolysis" value="Beta" class="hidden">
+                                    <label for="hemolysis-beta" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="images/Hemolysis Beta.png"
+                                             alt="Beta Hemolysis" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Beta (Clear)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="hemolysis-alpha" name="hemolysis" value="Alpha" class="hidden">
+                                    <label for="hemolysis-alpha" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                        <img src="images/Hemolysis Alpha.png"’
+                                             alt="Alpha Hemolysis" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Alpha (Green)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="hemolysis-gamma" name="hemolysis" value="Gamma" class="hidden">
+                                    <label for="hemolysis-gamma" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-between">
+                                           <img src="images/Hemolysis Gamma.png"
+                                             alt="Gamma Hemolysis" 
+                                             class="w-full h-24 object-cover rounded mb-2 bg-[#eeddd2]">
+                                        <span class="block font-medium text-[#4d3527] text-sm">Gamma (None)</span>
+                                    </label>
+                                </div>
+                                <div class="test-option">
+                                    <input type="radio" id="hemolysis-na" name="hemolysis" value="N/A" class="hidden" checked>
+                                    <label for="hemolysis-na" class="block cursor-pointer p-2 border border-[#dcb49f] rounded-lg text-center hover:border-[#007e9a] h-full flex flex-col justify-center items-center bg-[#eeddd2]">
+                                        <span class="text-gray-400 text-4xl mb-2">?</span>
+                                        <span class="block font-medium text-[#754c29] text-sm">Not Tested</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                    </div>
+                    
+                    <div class="flex gap-4">
+                        <button type="button" onclick="showPage('page1')" class="w-1/3 bg-[#dcb49f] text-[#4d3527] font-bold py-3 px-6 rounded-lg text-lg hover:bg-[#aa7a5b] transition duration-200">
+                            Back
+                        </button>
+                        <button type="submit" class="w-2/3 bg-[#007e9a] text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-[#034a5a] transition duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Identify Organism
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- PAGE 3: Final Result -->
+            <div id="page3" class="page">
+                <h3 class="text-xl font-semibold mb-6 border-b border-[#dcb49f] pb-3 text-[#4d3527]">Step 3: Identification Result</h3>
+                
+                <div id="result-container">
+                    <!-- Success Message -->
+                    <div id="result-success" class="hidden">
+                        <div class="p-4 bg-[#eeddd2] text-[#034a5a] rounded-lg mb-6 text-center border border-[#dcb49f]">
+                            <strong class="block text-xl">Match Found!</strong>
+                            <p class="text-lg">Your organism has been identified. <i></i>BactID uses a small dataset of soil bacteria to suggest identity. Your organism may be phenotypically similar but have a different identity.<i></i> </p>
+                        </div>
+                        <div class="bg-white border border-[#dcb49f] rounded-lg shadow-md">
+                            <h4 id="result-id" class="text-3xl font-bold text-center text-white bg-[#034a5a] p-6 rounded-t-lg"></h4>
+                            <div classs="p-6">
+                                <h5 class="text-xl font-semibold mt-6 mb-4 px-6 text-[#4d3527]">Complete Biochemical Profile:</h5>
+                                <ul id="result-list" class="divide-y divide-[#dcb49f]">
+                                    <!-- Results will be inserted here -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- No Match Message -->
+                    <div id="result-none" class="hidden">
+                        <div class="p-6 bg-[#dcb49f] text-[#4d3527] rounded-lg text-center">
+                            <strong class="block text-2xl mb-2">No Match Found</strong>
+                            <p class="text-lg">No organism in the database matches all of your selected criteria.</p>
+                            <p class="mt-4 text-sm">This could be due to a contaminated plate, a misread "Variable" test, or the organism is not in this database. BactID uses a small dataset of soil bacteria to suggest identity. Please double-check your tests.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contradiction Message -->
+                    <div id="result-contradiction" class="hidden">
+                         <div class="p-6 bg-[#aa7a5b] text-white rounded-lg text-center">
+                            <strong class="block text-2xl mb-2">Contradiction Detected!</strong>
+                            <p class="text-lg">Your secondary tests point to **<span id="contradiction-id" class="font-bold"></span>**.</p>
+                            <p class="mt-4 text-sm">However, this organism's known profile **conflicts** with the primary tests (Gram, Catalase, etc.) you entered on Step 1. This indicates a high probability of a misread test based on the bacteria in this database.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-8">
+                    <button type="button" onclick="showPage('page2')" class="w-1/3 bg-[#dcb49f] text-[#4d3527] font-bold py-3 px-6 rounded-lg text-lg hover:bg-[#aa7a5b] transition duration-200">
+                        Back
+                    </button>
+                    <!-- Updated Button: Proceed to Step 4 -->
+                    <button type="button" onclick="showPage('page4')" class="w-2/3 bg-[#007e9a] text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-[#034a5a] transition duration-200 shadow-lg hover:shadow-xl">
+                        Proceed to 16S Validation
+                    </button>
+                </div>
+                <div class="mt-4 text-center">
+                    <button type="button" onclick="startOver()" class="text-[#754c29] hover:text-[#4d3527] underline text-sm">
+                        Start Over (Clear Data)
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 4: 16S Validation (Google Form) -->
+            <div id="page4" class="page">
+                <h3 class="text-xl font-semibold mb-6 border-b border-[#dcb49f] pb-3 text-[#4d3527]">Step 4: 16S Validation</h3>
+                
+                <p class="mb-6 text-[#754c29]">Please perform 16S rDNA sequencing on your isolate. Analyze the results to determine the genus, then enter your findings in the form below.</p>
+                
+                <div class="w-full flex justify-center bg-white rounded-lg border border-[#dcb49f] overflow-hidden">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSde2ItVXapEDN37F6ak2cU1qLTkPFNdnDEpucfe73fncgdX7g/viewform?embedded=true" width="100%" height="1029" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+                
+                <!-- ADD A BACTERIUM BUTTON -->
+                <div class="mt-6 text-center">
+                    <a href="https://forms.gle/mePnWYLbE9QtmExD8" target="_blank" class="inline-block bg-[#007e9a] text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-[#034a5a] transition duration-200 shadow-lg">
+                        Add a Bacterium
+                    </a>
+                </div>
+                
+                 <div class="mt-6 text-center">
+                    <button type="button" onclick="showPage('page3')" class="text-[#754c29] hover:text-[#4d3527] underline text-sm">
+                        Back to Results
+                    </button>
+                </div>
+            </div>
+
+        </main>
+        
+        <footer class="text-center mt-8 text-[#754c29] text-sm">
+            <p>| Created by SL Mathews with Gemini | BactID is unable to provide technical support for users |</p>
+        </footer>
+    </div>
+
+     <!-- 3. Embedded JSON Database (Based on Pit Stop Full Clean_2+Starch(JSON).csv) -->
+    <script id="bacteria-data" type="application/json">
+    [{"Gram stain": "negative", "Catalase": "-", "Oxidase": "+", "Gelatinase": "-", "Glucose": "-", "Shape": "Bacillus", "Colony Morphology": "", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "+", "Hemolysis ": "Gamma", "ID": "Achromobacter "}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "-", "Shape": "Bacillus ", "Colony Morphology": "Smooth, opaque, gray-to-white; often appears mucoid. Appears pale/clear on MacConkey agar.", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Gamma", "ID": "Acinetobacter baumannii"}, {"Gram stain": "Positive ", "Catalase": "-", "Oxidase": "+", "Gelatinase": "-", "Glucose": "+", "Shape": "Cocci", "Colony Morphology": "Very small, \"Strep-like,\" grayish, translucent", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "V", "Mannitol": "V", "Amylase ": "-", "Hemolysis ": "Alpha", "ID": "Aerococcus viridans"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "+", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Large, round, convex, opaque, and often mucoid.", "Hydrogen sulfide ": "V", "Indole": "+", "Motility": "+", "Lactose": "V", "Mannitol": "+", "Amylase ": "+", "Hemolysis ": "Beta", "ID": "Aeromonas hydrophila"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "+", "Gelatinase": "-", "Glucose": "-", "Shape": "Bacillus", "Colony Morphology": "Spreading, feathery edges, grayish-white. Often has a distinct fruity odor (like apples or strawberries).", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "+", "Hemolysis ": "Variable", "ID": "Alcaligenes faecalis"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Pleomorphic", "Colony Morphology": "Small, convex, cream/yellow (Pleomorphic Rod)", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "V", "Lactose": "-", "Mannitol": "-", "Amylase ": "Variable", "Hemolysis ": "Variable", "ID": "Arthrobacter globiformis"}, {"Gram stain": "Positive", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "+", "Amylase ": "-", "Hemolysis ": "Alpha", "ID": "Hafnia alvei"}, {"Gram stain": "Positive", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "", "Hydrogen sulfide ": " ", "Indole": "-", "Motility": "+", "Lactose": "", "Mannitol": "", "Amylase ": "+", "Hemolysis ": "Variable", "ID": "Bacillus"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Large, flat, irregular, \"frosted-glass\" appearance", "Hydrogen sulfide ": "-", "Indole": "V", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "+", "Hemolysis ": "Beta", "ID": "Bacillus cereus"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "V", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Large, flat, irregular, opaque, \"frosted-glass\"", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "V", "Mannitol": "+", "Amylase ": "+", "Hemolysis ": "Variable", "ID": "Bacillus subtilis"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "V", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Moist, gray. Can be pink (slow) or clear (fast) on MacConkey.", "Hydrogen sulfide ": "+", "Indole": "-", "Motility": "+", "Lactose": "V", "Mannitol": "+", "Amylase ": "Variable", "Hemolysis ": "Variable", "ID": "Citrobacter freundii"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Small, convex, smooth, yellowish-white", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Gamma", "ID": "Corynebacterium glutamicum"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus ", "Colony Morphology": "Flat, moist, gray; \"fecal\" odor. Pink on MacConkey agar.", "Hydrogen sulfide ": "-", "Indole": "+", "Motility": "+", "Lactose": "+", "Mannitol": "+", "Amylase ": "-", "Hemolysis ": "Variable", "ID": "Escherichia coli"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus ", "Colony Morphology": "Very large, moist, highly mucoid (sticky). Pink on MacConkey.", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "+", "Mannitol": "+", "Amylase ": "-", "Hemolysis ": "Gamma", "ID": "Klebsiella pneumoniae"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Small, round, translucent", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Beta (w)", "ID": "Listeria monocytogenes"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "+", "Gelatinase": "-", "Glucose": "-", "Shape": "Cocci", "Colony Morphology": "Small, convex, bright yellow", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Gamma", "ID": "Micrococcus luteus"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "+", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Small, grayish, mucoid. Non-spreading. \"Musty\" or \"mousy\" odor.", "Hydrogen sulfide ": "-", "Indole": "+", "Motility": "-", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Variable", "ID": "Pasteurella multocida"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "+", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Smooth, opaque, glistening, non-pigmented.", "Hydrogen sulfide ": "-", "Indole": "+", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Variable", "ID": "Plesiomonas shigelloides"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Swarming motility, fishy odor ", "Hydrogen sulfide ": "+", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Variable", "ID": "Proteus mirabilis"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Swarming motility, fishy odor ", "Hydrogen sulfide ": "+", "Indole": "+", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Beta", "ID": "Proteus vulgaris"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "+", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Large, flat, spreading, often with metallic sheen. Fruity (grape-like) odor. May have green/blue pigment.", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "+", "Amylase ": "-", "Hemolysis ": "Beta", "ID": "Pseudomonas aeruginosa"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Moist, gray. Clear on MacConkey. Often black colonies on H₂S-indicator agar (like XLD or HE).", "Hydrogen sulfide ": "+", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "+", "Amylase ": "-", "Hemolysis ": "Gamma", "ID": "Salmonella enterica"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "+", "Shape": "Bacillus", "Colony Morphology": "Round, smooth. Often a characteristic red pigment (prodigiosin) at 25-30°C. Clear/pale on MacConkey.", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "- (weakly)", "Mannitol": "-", "Amylase ": "+", "Hemolysis ": "Variable", "ID": "Serratia marcescens"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Bacillus ", "Colony Morphology": "Small, moist, circular. Clear on MacConkey.", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "-", "Mannitol": "V", "Amylase ": "-", "Hemolysis ": "Gamma", "ID": "Shigella sonnei"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "+", "Shape": "Cocci", "Colony Morphology": "Round, smooth, opaque, often yellowish/golden", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "+", "Mannitol": "+", "Amylase ": "Variable", "Hemolysis ": "Beta", "ID": "Staphylococcus aureus"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Cocci", "Colony Morphology": "Round, opaque, white (Coccus)", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "+", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Gamma", "ID": "Staphylococcus epidermidis"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "-", "Gelatinase": "+", "Glucose": "-", "Shape": "Bacillus", "Colony Morphology": "Smooth, glistening, uneven edges. Often a pale yellow pigment. May have an ammonia-like odor.", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "+", "Lactose": "-", "Mannitol": "-", "Amylase ": "+", "Hemolysis ": "Variable", "ID": "Stenotrophomonas maltophilia"}, {"Gram stain": "Positive ", "Catalase": "-", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Cocci", "Colony Morphology": "Small, gray-white, mucoid, narrow zone of hemolysis", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "+", "Mannitol": "-", "Amylase ": "Variable", "Hemolysis ": "Variable", "ID": "Streptococcus agalactiae"}, {"Gram stain": "Positive ", "Catalase": "-", "Oxidase": "-", "Gelatinase": "-", "Glucose": "+", "Shape": "Cocci", "Colony Morphology": "Small, \"pinpoint,\" translucent, large zone of hemolysis", "Hydrogen sulfide ": "-", "Indole": "-", "Motility": "-", "Lactose": "-", "Mannitol": "-", "Amylase ": "-", "Hemolysis ": "Beta", "ID": "Streptococcus equi"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "V", "Gelatinase": "+", "Glucose": "+", "Shape": "Filamentous", "Colony Morphology": "White aerial mycelium (\"albus\" = white), no substrate pigment.", "Hydrogen sulfide ": "V", "Indole": "-", "Motility": "-", "Lactose": "V", "Mannitol": "V", "Amylase ": "+", "Hemolysis ": "Gamma", "ID": "Streptomyces albus"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "V", "Gelatinase": "+", "Glucose": "+", "Shape": "Filamentous", "Colony Morphology": "Blue-green aerial mycelium, blue substrate pigment (\"actinorhodin\").", "Hydrogen sulfide ": "V", "Indole": "-", "Motility": "-", "Lactose": "V", "Mannitol": "V", "Amylase ": "+", "Hemolysis ": "Gamma", "ID": "Streptomyces coelicolor"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "V", "Gelatinase": "+", "Glucose": "+", "Shape": "Filamentous", "Colony Morphology": "Gray-green aerial mycelium, yellowish substrate.", "Hydrogen sulfide ": "V", "Indole": "-", "Motility": "-", "Lactose": "+", "Mannitol": "+", "Amylase ": "+", "Hemolysis ": "Gamma", "ID": "Streptomyces griseus"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "V", "Gelatinase": "+", "Glucose": "+", "Shape": "Filamentous", "Colony Morphology": "Gray aerial mycelium, often brownish substrate. Very similar to S. coelicolor.", "Hydrogen sulfide ": "V", "Indole": "-", "Motility": "-", "Lactose": "V", "Mannitol": "V", "Amylase ": "+", "Hemolysis ": "Gamma", "ID": "Streptomyces lividans"}, {"Gram stain": "Positive ", "Catalase": "+", "Oxidase": "V", "Gelatinase": "+", "Glucose": "+", "Shape": "Filamentous", "Colony Morphology": "Powdery, white-to-gray aerial mycelium. Causes potato scab.", "Hydrogen sulfide ": "V", "Indole": "-", "Motility": "-", "Lactose": "V", "Mannitol": "V", "Amylase ": "+", "Hemolysis ": "Gamma", "ID": "Streptomyces scabies"}, {"Gram stain": "Negative", "Catalase": "+", "Oxidase": "+", "Gelatinase": "+", "Glucose": "+", "Shape": "Vibrio", "Colony Morphology": "Medium-sized, smooth, opaque, and glistening.", "Hydrogen sulfide ": "-", "Indole": "+", "Motility": "+", "Lactose": "-", "Mannitol": "+", "Amylase ": "-", "Hemolysis ": "Beta", "ID": "Vibrio cholerae"}]
+    </script>
+
+    <!-- 4. JavaScript Application Logic -->
+    <script>
+        // --- GLOBALS ---
+        const pages = document.querySelectorAll('.page');
+        const formPage1 = document.getElementById('form-page1');
+        const formPage2 = document.getElementById('form-page2');
+        const matchCountEl = document.getElementById('match-count');
+        
+        // Result containers
+        const resultSuccessEl = document.getElementById('result-success');
+        const resultNoneEl = document.getElementById('result-none');
+        const resultContradictionEl = document.getElementById('result-contradiction');
+        const resultIdEl = document.getElementById('result-id');
+        const resultListEl = document.getElementById('result-list');
+        const contradictionIdEl = document.getElementById('contradiction-id');
+
+        // Load and clean the database
+        const rawData = JSON.parse(document.getElementById('bacteria-data').textContent);
+        const DATABASE = rawData.filter(entry => entry.ID); 
+
+        let primaryMatches = [];
+        let primaryInputs = {};
+        
+        const keyMap = {
+            "gram-stain": "Gram stain",
+            "catalase": "Catalase",
+            "oxidase": "Oxidase",
+            "gelatinase": "Gelatinase",
+            "glucose": "Glucose",
+            "hydrogen-sulfide": "Hydrogen sulfide ",
+            "indole": "Indole",
+            "motility": "Motility",
+            "lactose": "Lactose",
+            "mannitol": "Mannitol",
+            "amylase": "Amylase ",
+            "hemolysis": "Hemolysis "
+        };
+
+        // --- PAGE NAVIGATION ---
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0); 
+        }
+
+        function startOver() {
+            formPage1.reset();
+            formPage2.reset();
+            primaryMatches = [];
+            primaryInputs = {};
+            showPage('page1');
+        }
+
+        // --- EVENT LISTENERS ---
+        formPage1.addEventListener('submit', handlePage1Submit);
+        formPage2.addEventListener('submit', handlePage2Submit);
+
+        // --- LOGIC ---
+
+        function handlePage1Submit(e) {
+            e.preventDefault();
+            const formData = new FormData(formPage1);
+            primaryInputs = {};
+            for (const [key, value] of formData.entries()) {
+                primaryInputs[key] = value;
+            }
+
+            primaryMatches = filterDatabase(DATABASE, primaryInputs);
+            matchCountEl.textContent = `${primaryMatches.length} organism(s) match your primary tests.`;
+            showPage('page2');
+        }
+
+        function handlePage2Submit(e) {
+            e.preventDefault();
+            const formData = new FormData(formPage2);
+            const secondaryInputs = {};
+            for (const [key, value] of formData.entries()) {
+                if (value !== "N/A") {
+                    secondaryInputs[key] = value;
+                }
+            }
+
+            const finalMatches = filterDatabase(primaryMatches, secondaryInputs);
+            displayResult(finalMatches, secondaryInputs);
+        }
+
+        function filterDatabase(data, inputs) {
+            return data.filter(entry => {
+                for (const key in inputs) {
+                    const dbKey = keyMap[key];
+                    const dbValue = entry[dbKey] ? entry[dbKey].toString().trim() : ""; 
+                    const inputValue = inputs[key];
+                    
+                    if (dbValue === "") return true;
+
+                    // Updated Wildcard logic to include "Variable"
+                    if (
+                        dbValue === "V" || 
+                        dbValue === "Variable" ||
+                        dbValue === "V, often Beta" || 
+                        dbValue === "V, often Gamma" || 
+                        dbValue === "- (weakly)" || 
+                        dbValue === "V (usu. -)"
+                    ) {
+                        continue; 
+                    }
+                    
+                    // Case insensitive comparison for things like "Negative" vs "negative"
+                    const dbValLower = dbValue.toLowerCase();
+                    const inputValLower = inputValue.toLowerCase();
+
+                    if (dbKey === "Gram stain") {
+                        if (dbValLower !== inputValLower) return false;
+                    } 
+                    else if (dbKey === "Hemolysis ") {
+                         if (dbValLower.startsWith(inputValLower)) {
+                            continue;
+                         } else {
+                            return false;
+                         }
+                    }
+                    else if (dbValLower !== inputValLower) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+        }
+
+        function displayResult(matches, secondaryInputs) {
+            resultSuccessEl.classList.add('hidden');
+            resultNoneEl.classList.add('hidden');
+            resultContradictionEl.classList.add('hidden');
+
+            if (matches.length === 1) {
+                const organism = matches[0];
+                resultIdEl.textContent = organism.ID;
+                resultListEl.innerHTML = ''; 
+                
+                for (const key in organism) {
+                    if (organism[key] !== null && organism[key] !== "") {
+                        const li = document.createElement('li');
+                        li.className = 'p-4 flex justify-between items-center sm:px-6';
+                        
+                        const traitName = document.createElement('span');
+                        traitName.className = 'font-semibold text-[#4d3527]';
+                        traitName.textContent = formatKey(key);
+                        
+                        const traitValue = document.createElement('span');
+                        traitValue.className = 'text-[#754c29] text-right';
+                        traitValue.textContent = organism[key];
+
+                        if (["Gram stain", "Catalase", "Oxidase", "Gelatinase", "Glucose"].includes(key)) {
+                             traitValue.className += ' font-bold text-[#007e9a]';
+                        }
+                        
+                        li.appendChild(traitName);
+                        li.appendChild(traitValue);
+                        resultListEl.appendChild(li);
+                    }
+                }
+                resultSuccessEl.classList.remove('hidden');
+
+            } else if (matches.length === 0) {
+                const contradictionMatch = findContradiction(secondaryInputs);
+                if (contradictionMatch) {
+                    contradictionIdEl.textContent = contradictionMatch.ID;
+                    resultContradictionEl.classList.remove('hidden');
+                } else {
+                    resultNoneEl.classList.remove('hidden');
+                    // Ensure the text resets if coming back from a "Multiple Matches" state
+                    resultNoneEl.querySelector('strong').textContent = "No Match Found";
+                    resultNoneEl.querySelector('p.text-lg').textContent = "No organism in the database matches all of your selected criteria.";
+                    resultNoneEl.querySelector('p.text-sm').textContent = 'This could be due to a contaminated plate, a misread "Variable" test, or the organism is not in this database. Please double-check your tests.';
+                }
+            } else {
+                // > 1 Match Case
+                resultNoneEl.classList.remove('hidden');
+                // Change the Header Text from "No Match Found" to "Multiple Matches Found"
+                resultNoneEl.querySelector('strong').textContent = "Multiple Matches Found";
+                
+                const matchNames = matches.map(m => m.ID).join(", ");
+                resultNoneEl.querySelector('p.text-lg').textContent = `Found ${matches.length} possible matches:`;
+                resultNoneEl.querySelector('p.text-sm').innerHTML = `<strong>${matchNames}</strong><br><br>Please go back and add more test results to narrow down the organism.`;
+            }
+
+            showPage('page3');
+        }
+
+        function findContradiction(secondaryInputs) {
+            const contradictionMatches = filterDatabase(DATABASE, secondaryInputs);
+            if (contradictionMatches.length === 1) {
+                const organism = contradictionMatches[0];
+                let isContradiction = false;
+                for (const key in primaryInputs) {
+                    const dbKey = keyMap[key];
+                    const dbValue = organism[dbKey] ? organism[dbKey].toString().trim() : "";
+                    const inputValue = primaryInputs[key];
+
+                    const dbValLower = dbValue.toLowerCase();
+                    const inputValLower = inputValue.toLowerCase();
+
+                    if (
+                        dbValue !== "V" && 
+                        dbValue !== "Variable" &&
+                        dbValue !== "" && 
+                        !dbValLower.startsWith(inputValLower) && 
+                        dbValLower !== inputValLower
+                    ) {
+                        isContradiction = true;
+                        break;
+                    }
+                }
+                return isContradiction ? organism : null;
+            }
+            return null;
+        }
+
+        function formatKey(key) {
+            return key.replace(/(\w)(\S*)/g, (g0, g1, g2) => g1.toUpperCase() + g2.toLowerCase()).trim();
+        }
+    </script>
+</body>
+</html>
