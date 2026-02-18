@@ -6,5 +6,15 @@ Use Google Gemini Canvas this databse was used to create a JSON file and then co
 
 There are multiple versions available in this repository. 
 Version 1 contains the html code with 30 bacteria in the JSON.
+
 Version 2 contained images for test results.
-Version 3
+
+Version 3 added additional test result images. 
+
+Version 4 includes larger database with 51 organisms.
+
+Version 5 changed the color scheme and edited the headers. It also changed the message users receive when multiple matches are found. This version also contains page 4 for 16S rDNA validation.
+
+Version 6 added the amylase test.
+
+Current version includes a code for google data anyltics and the references and resources box. 
